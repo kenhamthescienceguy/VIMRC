@@ -7,9 +7,7 @@ set tabstop=4
 set autoindent
 set shiftwidth=0
 set wrap
-set showmatch
 set laststatus=2
-set hlsearch
 set incsearch
 " }}}
 
@@ -34,6 +32,7 @@ nnoremap <leader>h :nohlsearch<cr>
  ""nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>:redr!<cr>
 nnoremap <leader>n :cnext<cr>
 nnoremap <leader>p :cprevious<cr>
+nnoremap // v<esc>^i//<esc>`<ll
 " }}}
 
 " Abbreviations------------------------------------{{{
@@ -66,6 +65,13 @@ augroup filetype_html
 	autocmd Filetype html onoremap ih :<c-u>execute "normal! ?^[=-]\\+$\r:nohlsearch\rkvg_"<cr>
 	autocmd Filetype html onoremap ah :<c-u>execute "normal! ?^[=-]\\+$\r:nohlsearch\rg_vk0"<cr>
 augroup END
+" java
+augroup filetype_java
+	autocmd!
+    autocmd Filetype java setlocal expandtab
+	autocmd Filetype java setlocal tabstop=4
+	autocmd Filetype java setlocal shiftwidth=4
+augroup END
 " }}}
 
 " Status line-------------------------------------{{{
@@ -82,3 +88,4 @@ augroup filetype_vim
 	autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
+
